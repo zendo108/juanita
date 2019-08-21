@@ -2,13 +2,22 @@
 
 @section('content')
     <h1>Messages</h1>
-    @if(count($mesagges)>0)
+    @if(count($messages)>0)
+        <div class="card-group">
         @foreach($messages as $message)
-            <ul class="list-group">
-                <li class="list-group-item">{{$message->name}}</li>
-                <li class="list-group-item">{{$message->email}}</li>
-                <li class="list-group-item">{{$message->message}}</li>
-            </ul>
+            <div class="card">
+              <div class="card-header">
+                {{$message->name}}
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>{{$message->message}}</p>
+                  <footer class="blockquote-footer">Email <cite title="Source Title">{{$message->email}}</cite></footer>
+                </blockquote>
+              </div>
+            </div>
+        @endforeach
+        </div>
     @endif
 @endsection
 
